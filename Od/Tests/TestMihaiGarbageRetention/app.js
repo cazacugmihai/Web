@@ -1007,6 +1007,8 @@ var Od;
         var lifecycleFn = odEventHandler(props);
         if (lifecycleFn)
             lifecycleFn("removed", dom);
+        if (dom.tagName === 'IMG')
+            delete props['src'];
         for (var prop in props)
             dom[prop] = null;
         // Recursively strip any child nodes.

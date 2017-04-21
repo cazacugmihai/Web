@@ -658,6 +658,7 @@ namespace Od {
         const props = getEltOdProps(dom);
         const lifecycleFn = odEventHandler(props);
         if (lifecycleFn) lifecycleFn("removed", dom);
+        if (dom.tagName === 'IMG') delete props['src'];
         for (var prop in props) (dom as any)[prop] = null;
         // Recursively strip any child nodes.
         const children = dom.childNodes;
